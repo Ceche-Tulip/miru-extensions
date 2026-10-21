@@ -3,6 +3,8 @@
 给 [Miru](https://github.com/miru-project/miru-app) 用的中文小说/漫画扩展。
 官方仓库 `miru-project/repo` 已停止维护，这里的源是重新写的，不依赖官方脚本。
 
+配套客户端：[Ceche-Tulip/miru-app](https://github.com/Ceche-Tulip/miru-app)（上游的 fork，修了几处影响扩展的客户端问题，见其 `PATCHES.md`）。
+
 ## 安装
 
 **方式一：添加本仓库（推荐）**
@@ -36,13 +38,16 @@ https://raw.githubusercontent.com/Ceche-Tulip/miru-extensions/main
 
 ## 客户端要求
 
-**书海阁的搜索需要「会跟随 POST 302」的客户端。** 官方原版基于 `dart:io`，而 `dart:io` 的自动重定向
-只对 GET/HEAD 生效，所以官方版点搜索会直接报 `DioException ... 302`。
+扩展运行在客户端里，能力边界由客户端决定。这里记录**已知的客户端限制**，与具体扩展无关：
 
-两种选择：
+| 限制 | 影响 | 说明 |
+| --- | --- | --- |
+| 不跟随非 GET 请求的重定向 | 站内搜索报 `DioException ... 302` | 官方客户端基于 `dart:io`，而它只对 GET/HEAD 自动跟随 3xx；「POST 表单 → 302 跳结果页」型站点的搜索因此失败 |
 
-1. 用本项目的自编译客户端（见 `miru-client` 仓库，已修此问题）；
-2. 或者只用书库浏览、详情和阅读——这些在官方版上正常。
+使用 [Ceche-Tulip/miru-app](https://github.com/Ceche-Tulip/miru-app)（fork）已修复上表问题；
+官方原版仍可正常浏览列表、查看详情与阅读，只是受影响的搜索不可用。
+
+新发现客户端层面的问题时，会继续补充到这张表。
 
 ## 目录结构
 
@@ -82,4 +87,5 @@ MIRU_STRICT=1 node tools/harness.mjs repo/shuhaige.net.js "search:xx"   # 模拟
 
 ## 许可
 
-各扩展文件头部自带许可（当前均为 MIT）。
+本仓库以 [MIT 许可](LICENSE) 发布，完整条款见 [`LICENSE`](LICENSE)；
+每个扩展文件头部的 `MIT` 标记与之一致。
