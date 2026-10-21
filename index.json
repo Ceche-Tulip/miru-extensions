@@ -1,0 +1,16 @@
+[
+  {
+    "name": "书海阁",
+    "package": "shuhaige.net",
+    "version": "v0.4.0",
+    "author": "Rune",
+    "lang": "zh-cn",
+    "type": "fikushon",
+    "license": "MIT",
+    "nsfw": "false",
+    "icon": "https://www.shuhaige.net/tpl/pc/images/logo.png",
+    "webSite": "https://www.shuhaige.net",
+    "url": "shuhaige.net.js",
+    "description": "书海阁小说网：书库分类浏览、搜索、书籍详情、正文阅读（自动合并章节分页）。搜索依赖已修复重定向的客户端。"
+  }
+]
