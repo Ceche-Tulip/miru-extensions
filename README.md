@@ -17,6 +17,20 @@ https://raw.githubusercontent.com/Ceche-Tulip/miru-extensions/main
 
 然后到「扩展 → 仓库」里点安装。地址末尾**不要**带 `/index.json`，App 会自己拼。
 
+> 这一步**不会覆盖** Miru 自带的社区源（`https://miru-repo.0n0.dev`），只是把地址换成本仓库；
+> 换回去就能恢复。两个源不能同时生效，因为 App 的仓库地址是单值设置。
+
+### 访问 GitHub 受限时
+
+`raw.githubusercontent.com` 在国内多数网络下被 DNS 劫持或阻断。两个替代地址，功能等价：
+
+| 镜像 | 地址 | 特点 |
+| --- | --- | --- |
+| jsDelivr（推荐） | `https://cdn.jsdelivr.net/gh/Ceche-Tulip/miru-extensions@main` | 免费 CDN，国内可直连；**分支有缓存**，刚推送的更新可能延迟数小时才可见 |
+| gh-proxy | `https://gh-proxy.com/https://raw.githubusercontent.com/Ceche-Tulip/miru-extensions/main` | 实时转发，无缓存；可用性依赖第三方 |
+
+两者都不需要账号，也不需要改 App。jsDelivr 上想看某个历史版本时，把 `@main` 换成 `@<tag>` 即可（tag 内容不可变，缓存更稳）。
+
 **方式二：手动放文件**
 
 把 `repo/<package>.js` 复制到 Miru 的扩展目录，文件名必须和扩展头里的 `@package` 一致：
