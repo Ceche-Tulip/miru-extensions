@@ -10,7 +10,7 @@
 Miru → 设置 → 扩展仓库地址，填：
 
 ```
-https://raw.githubusercontent.com/<用户名>/miru-extensions/main
+https://raw.githubusercontent.com/Ceche-Tulip/miru-extensions/main
 ```
 
 然后到「扩展 → 仓库」里点安装。地址末尾**不要**带 `/index.json`，App 会自己拼。
